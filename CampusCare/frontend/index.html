@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Helpdesk</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- AUTHENTICATION PAGE -->
+  <main id="authView" class="auth-layout">
+
+    <section class="auth-art">
+
+      <div class="brand">
+        <span class="brand-mark">S</span> Student Helpdesk
+      </div>
+
+      <div class="art-copy">
+        <span class="eyebrow">YOUR CAMPUS, YOUR SUPPORT</span>
+
+        <h1>
+          Every question<br>
+          <em>deserves an answer.</em>
+        </h1>
+
+        <p>
+          A smarter way to connect students with faculty,
+          raise academic concerns and track solutions
+          through one simple platform.
+        </p>
+
+        <div class="art-points">
+          <span>✦ Easy query tracking</span>
+          <span>✦ Direct faculty support</span>
+          <span>✦ Quick resolution updates</span>
+        </div>
+      </div>
+
+      <div class="art-footer">
+        Student Query & Helpdesk Management System
+      </div>
+
+    </section>
+
+    
+    <section class="auth-panel">
+
+      <div class="auth-card">
+
+        <div class="mobile-brand brand">
+          <span class="brand-mark">S</span> Student Helpdesk
+        </div>
+
+        <div class="auth-heading">
+          <span class="eyebrow">WELCOME TO STUDENT HELPDESK</span>
+
+          <h2 id="authTitle">Sign in to your account</h2>
+
+          <p id="authSubtitle">
+            Access your student helpdesk workspace.
+          </p>
+        </div>
+
+        <!-- USER ROLE -->
+        <div class="role-switch">
+          <button class="role-option active" data-role="student">
+            Student
+          </button>
+
+          <button class="role-option" data-role="faculty">
+            Faculty
+          </button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+
+          <label>
+            Email address
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="you@college.edu"
+              required
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Enter your password"
+              required
+            />
+          </label>
+
+          <button class="primary-btn full" type="submit">
+            Sign in <span>→</span>
+          </button>
+
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form id="registerForm" class="hidden">
+
+          <label>
+            Full name
+            <input
+              id="regName"
+              required
+              placeholder="Your full name"
+            />
+          </label>
+
+          <label>
+            College email
+            <input
+              id="regEmail"
+              type="email"
+              required
+              placeholder="you@college.edu"
+            />
+          </label>
+
+          <label>
+            Department
+            <input
+              id="regDepartment"
+              placeholder="e.g. Computer Science"
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              id="regPassword"
+              type="password"
+              minlength="8"
+              required
+              placeholder="At least 8 characters"
+            />
+          </label>
+
+          <button class="primary-btn full" type="submit">
+            Create student account <span>→</span>
+          </button>
+
+        </form>
+
+        <p class="auth-toggle" id="authToggle">
+          New to Student Helpdesk?
+          <button id="showRegister">Create an account</button>
+        </p>
+
+        <p class="demo-hint">
+          Demo: student@demo.com / Demo@123
+          <br>
+          Faculty: faculty@demo.com / Demo@123
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  
+  <main id="appView" class="app-shell hidden">
+
+   
+    <aside class="sidebar">
+
+      <div class="brand">
+        <span class="brand-mark">S</span> Student Helpdesk
+      </div>
+
+      <div class="side-label">WORKSPACE</div>
+
+      <nav>
+
+        <button class="nav-item active" data-page="dashboard">
+          <span>▦</span> Overview
+        </button>
+
+        <button class="nav-item" data-page="queries">
+          <span>▤</span>
+          <span id="navQueries">My queries</span>
+        </button>
+
+        <button class="nav-item student-only" data-page="new">
+          <span>＋</span> Raise a query
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+
+          <strong>Need a hand?</strong>
+
+          <p>
+            Raise a query and our faculty team
+            will get back to you.
+          </p>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+          ↪ &nbsp; Sign out
+        </button>
+
+      </div>
+
+    </aside>
+
+   
+    <section class="main-area">
+
+      <header class="topbar">
+
+        <div>
+          <span class="top-kicker">STUDENT SUPPORT PORTAL</span>
+          <h2 id="pageTitle">Overview</h2>
+        </div>
+
+        <div class="profile">
+
+          <div class="avatar" id="avatar">S</div>
+
+          <div>
+            <strong id="profileName">Student</strong>
+            <small id="profileRole">Student account</small>
+          </div>
+
+        </div>
+
+      </header>
+
+      <div class="content">
+
+        
+        <section id="dashboardPage" class="page">
+
+          <div class="welcome-banner">
+
+            <div>
+              <span class="eyebrow light">
+                YOUR SUPPORT, IN ONE PLACE
+              </span>
+
+              <h2 id="welcomeTitle">Good to see you!</h2>
+
+              <p>
+                Keep track of your questions
+                and get the help you need.
+              </p>
+            </div>
+
+            <div class="banner-art">✳</div>
+
+          </div>
+
+          <!-- STATISTICS -->
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <!-- RECENT QUERIES -->
+          <div class="section-heading">
+
+            <div>
+              <h3>Recent queries</h3>
+              <p>Your latest helpdesk activity</p>
+            </div>
+
+            <button class="text-btn" data-goto="queries">
+              View all →
+            </button>
+
+          </div>
+
+          <div id="recentQueries" class="query-list"></div>
+
+        </section>
+
+        <!-- QUERY MANAGEMENT PAGE -->
+        <section id="queriesPage" class="page hidden">
+
+          <div class="section-heading page-section-heading">
+
+            <div>
+              <h3 id="listHeading">My queries</h3>
+
+              <p>
+                Review updates and responses from the helpdesk.
+              </p>
+            </div>
+
+            <button
+              class="primary-btn compact student-only"
+              data-goto="new">
+              ＋ New query
+            </button>
+
+          </div>
+
+          <!-- FILTERS -->
+          <div class="filters">
+
+            <input
+              id="searchInput"
+              placeholder="Search by subject or student..."
+            />
+
+            <select id="statusFilter">
+              <option value="">All statuses</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+              <option>Closed</option>
+            </select>
+
+            <select id="categoryFilter">
+              <option value="">All categories</option>
+              <option>Academic</option>
+              <option>Exam</option>
+              <option>Hostel</option>
+              <option>Transport</option>
+              <option>General</option>
+            </select>
+
+          </div>
+
+          <div id="allQueries" class="query-list"></div>
+
+        </section>
+
+        <!-- RAISE QUERY PAGE -->
+        <section id="newPage" class="page hidden">
+
+          <div class="form-wrap">
+
+            <div class="section-heading">
+
+              <div>
+                <h3>Raise a new query</h3>
+
+                <p>
+                  Tell us what you need help with.
+                  We'll route it to the right team.
+                </p>
+              </div>
+
+            </div>
+
+            <form id="queryForm" class="query-form">
+
+              <label>
+                Query category
+
+                <select id="queryCategory" required>
+                  <option value="">Select a category</option>
+                  <option>Academic</option>
+                  <option>Exam</option>
+                  <option>Hostel</option>
+                  <option>Transport</option>
+                  <option>General</option>
+                </select>
+
+              </label>
+
+              <label>
+                Subject
+
+                <input
+                  id="queryTitle"
+                  required
+                  maxlength="120"
+                  placeholder="Briefly describe your issue"
+                />
+
+              </label>
+
+              <label>
+                Detailed description
+
+                <textarea
+                  id="queryDescription"
+                  required
+                  rows="6"
+                  maxlength="5000"
+                  placeholder="Provide details so the team can help you faster..."
+                ></textarea>
+
+              </label>
+
+              <div class="form-actions">
+
+                <span>
+                  Our team will review your query shortly.
+                </span>
+
+                <button class="primary-btn" type="submit">
+                  Submit query <span>→</span>
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        Student Helpdesk
+        <span>•</span>
+        Connecting Students and Faculty
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- QUERY DETAILS MODAL -->
+  <div id="detailModal" class="modal hidden">
+
+    <div class="modal-card">
+
+      <button class="modal-close" id="closeModal">
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
